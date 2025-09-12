@@ -41,13 +41,10 @@
 #include "host/usbh.h"
 #include "ohci.h"
 
-// TODO remove
-#include "chip.h"
-
 //--------------------------------------------------------------------+
 // MACRO CONSTANT TYPEDEF
 //--------------------------------------------------------------------+
-#define OHCI_REG               ((ohci_registers_t *) LPC_USB_BASE)
+#define OHCI_REG               ((ohci_registers_t *) 0x01E25000)
 
 enum {
   OHCI_CONTROL_FUNCSTATE_RESET = 0,
