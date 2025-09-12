@@ -541,7 +541,10 @@ static void dump_str_line(uint8_t const* buf, uint16_t count) {
   // each line is 16 bytes
   for (uint16_t i = 0; i < count; i++) {
     int ch = buf[i];
-    tu_printf("%c", isprint(ch) ? ch : '.');
+    if (!(ch >= 0x20 && ch <= 0x7f)) {
+      ch = '.';
+    }
+    tu_printf("%c", ch);
   }
   tu_printf("|\r\n");
 }
